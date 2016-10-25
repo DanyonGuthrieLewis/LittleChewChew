@@ -28,7 +28,7 @@ public class StateMachine {
         removeState(oldState);
         addState(newState);
     }
-    public void update(){
-        states.forEach(state -> {if (state.isActive()) state.OnStateUpdate();});
+    public void update(float dt){
+        states.forEach(state -> {if (state.isActive()) state.OnStateUpdate(dt);});
     }
 }

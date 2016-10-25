@@ -7,7 +7,7 @@ public abstract class State {
     private boolean active;
     protected String tag = "UN-NAMED";
     public abstract void OnStateEnter();
-    public abstract void OnStateUpdate();
+    public abstract void OnStateUpdate(float dt);
     public abstract void OnStateExit();
 
     public boolean isActive(){
