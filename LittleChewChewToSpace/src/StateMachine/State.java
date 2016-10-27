@@ -1,8 +1,5 @@
-package StateMachines;
+package StateMachine;
 
-/**
- * Created by Greymoon on 10/23/2016.
- */
 public abstract class State {
     private boolean active;
     protected String tag = "UN-NAMED";

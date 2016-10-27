@@ -1,10 +1,7 @@
-package StateMachines;
+package StateMachine;
 
 import java.util.ArrayList;
 
-/**
- * Created by Greymoon on 10/23/2016.
- */
 public class StateMachine {
     private ArrayList<State> states;
 
@@ -22,13 +19,20 @@ public class StateMachine {
         states.remove(state);
     }
     public void removeState(String tag){
-        states.stream().forEach(state -> {if (state.getTag().equals(tag)) removeState(state);});
+        for(State state : states){
+        	if(state.getTag().equals(tag)) removeState(state);
+        }
     }
     public void switchStates(State newState, State oldState){
         removeState(oldState);
         addState(newState);
     }
     public void update(float dt){
-        states.forEach(state -> {if (state.isActive()) state.OnStateUpdate(dt);});
+    	for(State state : states){
+    		if(state.isActive()) state.OnStateUpdate(dt);
+    	}
+    }
+    public boolean hasState(State state){
+    	return states.contains(state);
     }
 }
