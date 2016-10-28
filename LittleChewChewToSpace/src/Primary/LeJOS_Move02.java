@@ -4,7 +4,7 @@ import LeJOS_States.ForwardState;
 import StateMachine.StateMachine;
 import lejos.nxt.*;
 
-public class LearningLeJOS_MoveOneCommand {
+public class LeJOS_Move02 {
 
 	public static void main(String[] args){
 		
