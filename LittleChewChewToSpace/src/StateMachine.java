@@ -14,14 +14,15 @@ public class StateMachine {
         states.add(state);
     }
 
-    public void removeState(State state){
+    public boolean removeState(State state){
         state.OnStateExit();
-        states.remove(state);
+        return states.remove(state);
     }
-    public void removeState(String tag){
+    public boolean removeState(String tag){
         for(State state : states){
-        	if(state.getTag().equals(tag)) removeState(state);
+        	if(state.getTag().equals(tag)) return removeState(state);
         }
+        return false;
     }
     public void switchStates(State newState, State oldState){
         removeState(oldState);
