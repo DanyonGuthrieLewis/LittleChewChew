@@ -1,6 +1,6 @@
 
 public class CanTouchedEvent extends Event{
-	boolean isTouchingCan;
+	private boolean isTouchingCan;
 	public CanTouchedEvent(boolean touchingCan){
 		Tag = "TouchedCan";
 		isTouchingCan = touchingCan;

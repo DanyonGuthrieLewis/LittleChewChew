@@ -1,9 +1,6 @@
 
-public class ObserverState extends State implements IObserver{
-
+public abstract class ObserverState extends State implements IObserver{
 	@Override
-	public void OnNotify(Event event) {
-		
-	}
+	public abstract void OnNotify(Event event);
 
 }

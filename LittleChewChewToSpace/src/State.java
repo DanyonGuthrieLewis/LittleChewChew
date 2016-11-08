@@ -5,7 +5,7 @@ public class State {
     protected String tag = "UN-NAMED";
     protected StateMachine machine;
     
-    public void State(StateMachine machine){
+    public void setStateMachine(StateMachine machine){
     	this.machine = machine;
     }
     
