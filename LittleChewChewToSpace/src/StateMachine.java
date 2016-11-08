@@ -36,4 +36,7 @@ public class StateMachine {
     public boolean hasState(State state){
     	return states.contains(state);
     }
+    public boolean hasStates(){
+    	return (states.size() <= 0);
+    }
 }
