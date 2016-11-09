@@ -28,11 +28,8 @@ public class LeJOS_PushSensor extends TouchSensor implements IPushSensor {
 
 	}
 
-	public boolean isPreviousResult() {
-		return previousResult;
-	}
 
-	public void setPreviousResult(boolean previousResult) {
+	private void setPreviousResult(boolean previousResult) {
 		this.previousResult = previousResult;
 	}
 
