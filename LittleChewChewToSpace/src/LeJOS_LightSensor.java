@@ -5,7 +5,7 @@ public class LeJOS_LightSensor extends LightSensor implements ILightSensor {
 	private boolean isWithinBoundary;
 	private boolean isNotCrossingBoundary;
 	private boolean previousResult;
-	private static final int BOUNDARY_VALUE = 0;
+	private static final int BOUNDARY_VALUE = 50;
 	private static final boolean DEFAULT_PREVIOUS_RESULT = false;
 
 	public LeJOS_LightSensor(ADSensorPort port) {
@@ -40,7 +40,7 @@ public class LeJOS_LightSensor extends LightSensor implements ILightSensor {
 
 	public boolean isOnBoundary() {
 		int currentValue = readValue();
-		return currentValue == BOUNDARY_VALUE;
+		return currentValue <= BOUNDARY_VALUE;
 	}
 
 	public boolean isNotOnBoundary() {
