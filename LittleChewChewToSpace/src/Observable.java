@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public abstract class Observable implements Runnable{
+public abstract class Observable extends Thread{
 	private ArrayList<IObserver> observers;
 	private boolean isObserving = true;
 	public Observable(){
@@ -12,6 +12,10 @@ public abstract class Observable implements Runnable{
 	public void removeObserver(IObserver observer){
 		observers.remove(observer);
 	}
+	public void StartObserving(){
+		this.start();
+	}
+	@Override
 	public void run(){
 		Observe();
 	}
