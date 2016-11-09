@@ -1,20 +1,31 @@
 
 public class ReverseIntoBoundary extends ObserverState{
 
+	private State locateCan;
+	private State backwards;
+	private BoundarySystem boundarySystem;
+	
+	public ReverseIntoBoundary(State locateCan, MoveBackwards backwards, BoundarySystem boundarySystem) {
+		this.locateCan = locateCan;
+		this.backwards = backwards;
+		this.boundarySystem = boundarySystem;
+	}
+	
 	@Override
 	public void OnStateEnter() {
-		// TODO Auto-generated method stub
-		super.OnStateEnter();
+		boundarySystem.addObserver(this);
+		machine.addState(backwards);
 	}
 	@Override
 	public void OnNotify(Event event) {
-		// TODO Auto-generated method stub
-		
+		BoundaryCrossedEvent boundaryCrossedEvent = (BoundaryCrossedEvent) event;
+		if (boundaryCrossedEvent.getIsInBoundary()){
+			machine.switchStates(locateCan, this);
+		}
 	}
 	@Override
 	public void OnStateExit() {
-		// TODO Auto-generated method stub
-		super.OnStateExit();
+		machine.removeState(backwards);
 	}
 
 }

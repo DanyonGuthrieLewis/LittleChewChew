@@ -15,5 +15,4 @@ public class TurnRight extends State{
 		// TODO Auto-generated method stub
 		super.OnStateExit();
 	}
-
 }

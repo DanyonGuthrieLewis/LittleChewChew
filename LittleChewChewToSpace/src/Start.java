@@ -1,7 +1,11 @@
 
 public class Start extends State{
+	private State next;
+	public Start(State next){
+		this.next = next;
+	}
 	@Override
 	public void OnStateEnter() {
-		//enter locate can state.
+		machine.switchStates(next, this);
 	}
 }

@@ -9,7 +9,7 @@ public abstract class Observable implements Runnable{
 	public void addObserver(IObserver observer){
 		observers.add(observer);
 	}
-	public void removeListener(IObserver observer){
+	public void removeObserver(IObserver observer){
 		observers.remove(observer);
 	}
 	public void run(){

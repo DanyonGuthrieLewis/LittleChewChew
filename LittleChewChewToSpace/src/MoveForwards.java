@@ -1,5 +1,5 @@
 
-public class MoveForward extends State{
+public class MoveForwards extends State{
 	@Override
 	public void OnStateEnter() {
 		// TODO Auto-generated method stub
