@@ -2,7 +2,9 @@
 public class MoveBackwards extends State{
 	private DriveSystem drive;
 	private MartianSystem marty;
-	public MoveBackwards(DriveSystem drive, MartianSystem martianSystem) {
+	
+	
+	public void initialize(DriveSystem drive, MartianSystem martianSystem){
 		this.drive = drive;
 		this.marty = martianSystem;
 	}

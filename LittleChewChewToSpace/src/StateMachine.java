@@ -10,6 +10,7 @@ public class StateMachine {
     }
 
     public void addState(State state){
+    	state.AddToMachine(this);
         state.OnStateEnter();
         states.add(state);
     }

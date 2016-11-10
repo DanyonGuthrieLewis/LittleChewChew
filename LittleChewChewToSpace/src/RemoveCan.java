@@ -11,8 +11,7 @@ public class RemoveCan extends ObserverState{
 	
 	private int cansRemoved = 0;
 	
-	
-	public RemoveCan(State locateCan, State forward, State reverse, State finish, LocateSystem locateSystem, BoundarySystem boundrySystem) {
+	public void initialize(State locateCan, State forward, State reverse, State finish, LocateSystem locateSystem, BoundarySystem boundrySystem){
 		this.locateCan = locateCan;
 		this.forward = forward;
 		this.reverse = reverse;

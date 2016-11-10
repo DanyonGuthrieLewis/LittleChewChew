@@ -25,12 +25,8 @@ public class State {
     public String getTag(){
         return tag;
     }
-    public void AddToMachine(){
-    	machine.addState(this);
-    }
     public void AddToMachine(StateMachine machine){
     	this.machine = machine;
-    	machine.addState(this);
     }
     public boolean RemoveFromMachine(){
     	return machine.removeState(this);
