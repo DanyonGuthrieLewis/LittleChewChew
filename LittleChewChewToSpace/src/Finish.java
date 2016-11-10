@@ -1,18 +1,26 @@
 
 public class Finish extends ObserverState{
+	private State forward;
+	private BoundarySystem boundarySystem;
+	public Finish(State forward, BoundarySystem boundarySystem) {
+		this.boundarySystem = boundarySystem;
+		this.forward = forward;
+	}
 	@Override
 	public void OnStateEnter() {
-		// TODO Auto-generated method stub
-		super.OnStateEnter();
+		machine.addState(forward);
+		boundarySystem.addObserver(this);
 	}
 	@Override
 	public void OnNotify(Event event) {
-		// TODO Auto-generated method stub
-		
+		BoundaryEvent boundaryCrossedEvent = (BoundaryEvent) event;
+		if (boundaryCrossedEvent.getIsOutOfBoundary()){
+			machine.removeState(this);
+		}
 	}
 	@Override
 	public void OnStateExit() {
-		// TODO Auto-generated method stub
-		super.OnStateExit();
+		boundarySystem.addObserver(this);
+		machine.removeState(forward);
 	}
 }

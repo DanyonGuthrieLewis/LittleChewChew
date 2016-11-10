@@ -18,7 +18,7 @@ public class ReverseIntoBoundary extends ObserverState{
 	}
 	@Override
 	public void OnNotify(Event event) {
-		BoundaryCrossedEvent boundaryCrossedEvent = (BoundaryCrossedEvent) event;
+		BoundaryEvent boundaryCrossedEvent = (BoundaryEvent) event;
 		if (boundaryCrossedEvent.getIsInBoundary()){
 			machine.switchStates(locateCan, this);
 		}

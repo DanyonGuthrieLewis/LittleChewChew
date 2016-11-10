@@ -1,18 +1,14 @@
 
 public class MoveBackwards extends State{
-	@Override
-	public void OnStateEnter() {
-		// TODO Auto-generated method stub
-		super.OnStateEnter();
+	private DriveSystem drive;
+	private MartianSystem marty;
+	public MoveBackwards(DriveSystem drive, MartianSystem martianSystem) {
+		this.drive = drive;
+		this.marty = martianSystem;
 	}
 	@Override
 	public void OnStateUpdate(float dt) {
-		// TODO Auto-generated method stub
-		super.OnStateUpdate(dt);
-	}
-	@Override
-	public void OnStateExit() {
-		// TODO Auto-generated method stub
-		super.OnStateExit();
+		drive.moveBackward();
+		marty.playBackwardSound();
 	}
 }

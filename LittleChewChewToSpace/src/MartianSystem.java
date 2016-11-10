@@ -14,4 +14,7 @@ public class MartianSystem{
 	public void playTouchingSound(){
 		Sound.systemSound(false, TOUCHING_SOUND_CODE);
 	}
+	public void displayMessage(String message){
+		System.out.println(message);
+	}
 }

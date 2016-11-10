@@ -32,7 +32,6 @@ public class LLCTimer implements Runnable{
 		try {
 			timerThread.wait();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

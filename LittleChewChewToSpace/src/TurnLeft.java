@@ -1,18 +1,11 @@
 
 public class TurnLeft extends State{
-	@Override
-	public void OnStateEnter() {
-		// TODO Auto-generated method stub
-		super.OnStateEnter();
+	DriveSystem drive;
+	public TurnLeft(DriveSystem drive) {
+		this.drive = drive;
 	}
 	@Override
 	public void OnStateUpdate(float dt) {
-		// TODO Auto-generated method stub
-		super.OnStateUpdate(dt);
-	}
-	@Override
-	public void OnStateExit() {
-		// TODO Auto-generated method stub
-		super.OnStateExit();
+		drive.moveLeft();
 	}
 }

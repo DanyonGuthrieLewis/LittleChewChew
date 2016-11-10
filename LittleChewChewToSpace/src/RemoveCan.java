@@ -29,7 +29,7 @@ public class RemoveCan extends ObserverState{
 	@Override
 	public void OnNotify(Event event) {
 		if (event.getTag().equals("BoundaryCrossed")){
-			BoundaryCrossedEvent boundaryCrossedEvent = (BoundaryCrossedEvent) event;
+			BoundaryEvent boundaryCrossedEvent = (BoundaryEvent) event;
 			if (boundaryCrossedEvent.getIsOutOfBoundary()){
 				if (cansRemoved == CANS_TO_REMOVE){
 					machine.switchStates(finish, this);
