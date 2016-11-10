@@ -1,6 +1,3 @@
-import lejos.nxt.rcxcomm.LLC;
-import lejos.util.Timer;
-
 public class LittleChewChew {
 	
 	private StateMachine machine;
