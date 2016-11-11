@@ -1,19 +1,19 @@
-import lejos.nxt.ADSensorPort;
 import lejos.nxt.TouchSensor;
 
-public class LeJOS_PushSensor extends TouchSensor implements IPushSensor {
+public class LeJOS_PushSensor implements IPushSensor {
 	private boolean previousResult;
+	private TouchSensor touchSensor;
 	private final boolean DEFAULT_PREVIOUS_RESULT = false;
 
-	public LeJOS_PushSensor(ADSensorPort port) {
-		super(port);
+	public LeJOS_PushSensor(TouchSensor touchSensor) {
+		this.setTouchSensor(touchSensor);
 		this.setPreviousResult(DEFAULT_PREVIOUS_RESULT);
 
 	}
 
 	@Override
 	public boolean isTouchingCan() {
-		return isPressed();
+		return touchSensor.isPressed();
 	}
 
 	@Override
@@ -32,5 +32,10 @@ public class LeJOS_PushSensor extends TouchSensor implements IPushSensor {
 	private void setPreviousResult(boolean previousResult) {
 		this.previousResult = previousResult;
 	}
+
+	public void setTouchSensor(TouchSensor touchSensor) {
+		this.touchSensor = touchSensor;
+	}
+	
 
 }

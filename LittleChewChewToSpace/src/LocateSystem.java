@@ -7,7 +7,7 @@ public class LocateSystem extends Observable{
 	@Override
 	public boolean HasChanged() {
 		
-		return sensor.HasChanged();
+		return sensor.hasChanged();
 	}
 
 }

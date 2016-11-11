@@ -1,23 +1,24 @@
-import lejos.nxt.I2CPort;
 import lejos.nxt.UltrasonicSensor;
 
-public class LeJOS_UltrasonicSensor extends UltrasonicSensor implements IUltrasonicSensor{
+public class LeJOS_UltrasonicSensor implements IUltrasonicSensor{
 	private boolean previousResult;
+	private UltrasonicSensor sensor;
 	private static final int ACCEPTABLE_RANGE_MIN = 0;
-	private static final int ACCEPTABLE_RANGE_MAX = 0;
-	public LeJOS_UltrasonicSensor(I2CPort port) {
-		super(port);
+	private static final int ACCEPTABLE_RANGE_MAX = 60;
+	
+	public LeJOS_UltrasonicSensor(UltrasonicSensor sensor) {
+		this.setSensor(sensor);
 		this.setPreviousResult(false);
 	}
 
 	@Override
 	public boolean isCanInFront() {
-		int distance = this.getDistance();
+		int distance = sensor.getDistance();
 		return (distance >= ACCEPTABLE_RANGE_MIN && distance <= ACCEPTABLE_RANGE_MAX);
 	}
 
 	@Override
-	public boolean HasChanged() {
+	public boolean hasChanged() {
 		boolean changed = false;
 		boolean currentResult = this.isCanInFront();
 		if(currentResult != previousResult)
@@ -28,6 +29,10 @@ public class LeJOS_UltrasonicSensor extends UltrasonicSensor implements IUltraso
 
 	public void setPreviousResult(boolean previousResult) {
 		this.previousResult = previousResult;
+	}
+
+	public void setSensor(UltrasonicSensor sensor) {
+		this.sensor = sensor;
 	}
 
 }

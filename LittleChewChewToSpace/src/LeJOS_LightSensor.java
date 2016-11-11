@@ -1,15 +1,15 @@
-import lejos.nxt.ADSensorPort;
 import lejos.nxt.LightSensor;
 
-public class LeJOS_LightSensor extends LightSensor implements ILightSensor {
+public class LeJOS_LightSensor implements ILightSensor {
 	private boolean isWithinBoundary;
 	private boolean isNotCrossingBoundary;
 	private boolean previousResult;
+	private LightSensor lightsensor;
 	private static final int BOUNDARY_VALUE = 50;
 	private static final boolean DEFAULT_PREVIOUS_RESULT = false;
 
-	public LeJOS_LightSensor(ADSensorPort port) {
-		super(port);
+	public LeJOS_LightSensor(LightSensor lightsensor) {
+		this.setLightsensor(lightsensor);
 		this.setWithinBoundary(true);
 		this.setWithinBoundary(true);
 		this.setPreviousResult(DEFAULT_PREVIOUS_RESULT);
@@ -39,7 +39,7 @@ public class LeJOS_LightSensor extends LightSensor implements ILightSensor {
 	}
 
 	public boolean isOnBoundary() {
-		int currentValue = readValue();
+		int currentValue = lightsensor.readValue();
 		return currentValue <= BOUNDARY_VALUE;
 	}
 
@@ -63,5 +63,10 @@ public class LeJOS_LightSensor extends LightSensor implements ILightSensor {
 	public void setPreviousResult(boolean defaultPreviousResult) {
 		this.previousResult = defaultPreviousResult;
 	}
+
+	public void setLightsensor(LightSensor lightsensor) {
+		this.lightsensor = lightsensor;
+	}
+	
 
 }
