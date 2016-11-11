@@ -7,10 +7,14 @@ public class LocateSystem extends Observable {
 	}
 
 	@Override
-	public boolean HasChanged() {
-
+	public void StartObserving() {
+		System.out.println("Observing");
+		super.StartObserving();
+	}
+	
+	@Override
+	public Event HasChanged() {
 		return sensor.hasChanged();
-
 	}
 
 }

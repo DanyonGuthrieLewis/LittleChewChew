@@ -15,14 +15,14 @@ public class LeJOS_LightSensor implements ILightSensor {
 		this.setPreviousResult(DEFAULT_PREVIOUS_RESULT);
 	}
 
-	public boolean hasChanged(){
+	public Event hasChanged(){
 		boolean changed = false;
 		boolean currentResult = this.isOutOfBoundary();
 		if(currentResult != previousResult){
 			changed = true;
 		}
 		this.setPreviousResult(currentResult);
-		return changed;
+		return new BoundaryEvent(changed, isOnBoundary(), isOutOfBoundary());
 	}
 	public boolean isOutOfBoundary() {
 		if(isNotCrossingBoundary){

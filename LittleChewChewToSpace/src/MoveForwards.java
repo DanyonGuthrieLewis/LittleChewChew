@@ -12,6 +12,10 @@ public class MoveForwards extends ObserverState{
 		this.meToucher = touchSystem;
 	}
 	@Override
+	public void OnStateEnter() {
+		meToucher.addObserver(this);
+	}
+	@Override
 	public void OnStateUpdate(float dt) {
 		drive.moveForward();
 		if (isTouchingCan){
@@ -24,5 +28,9 @@ public class MoveForwards extends ObserverState{
 	public void OnNotify(Event event) {
 		CanTouchedEvent canTouchedEvent = (CanTouchedEvent) event;
 		isTouchingCan = canTouchedEvent.getIsTouchingCan();
+	}
+	@Override
+	public void OnStateExit() {
+		meToucher.removeObserver(this);
 	}
 }

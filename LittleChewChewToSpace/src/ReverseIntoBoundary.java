@@ -14,6 +14,7 @@ public class ReverseIntoBoundary extends ObserverState{
 	public void OnStateEnter() {
 		boundarySystem.addObserver(this);
 		machine.addState(backwards);
+		System.out.println("Reverse");
 	}
 	@Override
 	public void OnNotify(Event event) {

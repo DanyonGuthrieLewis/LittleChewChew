@@ -21,7 +21,7 @@ public class Finish extends ObserverState{
 	}
 	@Override
 	public void OnStateExit() {
-		boundarySystem.addObserver(this);
+		boundarySystem.removeObserver(this);
 		machine.removeState(forward);
 	}
 }

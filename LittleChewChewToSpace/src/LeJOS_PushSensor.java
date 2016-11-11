@@ -17,14 +17,14 @@ public class LeJOS_PushSensor implements IPushSensor {
 	}
 
 	@Override
-	public boolean hasChanged() {
+	public Event hasChanged() {
 		boolean changed = false;
 		boolean currentResult = isTouchingCan();
 		if(currentResult != previousResult){
 			changed = true;
 		}
 		this.setPreviousResult(currentResult);
-		return changed;
+		return new CanTouchedEvent(changed, isTouchingCan());
 
 	}
 

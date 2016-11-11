@@ -18,13 +18,13 @@ public class LeJOS_UltrasonicSensor implements IUltrasonicSensor{
 	}
 
 	@Override
-	public boolean hasChanged() {
+	public Event hasChanged() {
 		boolean changed = false;
 		boolean currentResult = this.isCanInFront();
 		if(currentResult != previousResult)
 			changed = true;
 		this.setPreviousResult(currentResult);
-		return changed;
+		return new CanInFrontEvent(changed, isCanInFront());
 	}
 
 	public void setPreviousResult(boolean previousResult) {

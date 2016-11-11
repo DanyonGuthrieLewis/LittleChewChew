@@ -1,5 +1,3 @@
-import lejos.nxt.comm.InBox;
-
 public class RemoveCan extends ObserverState{
 	private final int CANS_TO_REMOVE = 3;
 	private State locateCan;
@@ -24,6 +22,7 @@ public class RemoveCan extends ObserverState{
 		locateSystem.addObserver(this);
 		boundarySystem.addObserver(this);
 		machine.addState(forward);
+		System.out.println("Remove");
 	}
 	@Override
 	public void OnNotify(Event event) {

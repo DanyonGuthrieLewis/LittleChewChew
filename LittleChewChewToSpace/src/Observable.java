@@ -1,6 +1,8 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
-public abstract class Observable extends Thread{
+public abstract class Observable implements Runnable{
+	Thread observerThread;
 	private ArrayList<IObserver> observers;
 	private boolean isObserving = true;
 	public Observable(){
@@ -13,7 +15,8 @@ public abstract class Observable extends Thread{
 		observers.remove(observer);
 	}
 	public void StartObserving(){
-		this.start();
+		observerThread = new Thread(this);
+		observerThread.start();
 	}
 	@Override
 	public void run(){
@@ -21,15 +24,21 @@ public abstract class Observable extends Thread{
 	}
 	public void Observe(){
 		while (isObserving){
-			if (HasChanged()){
-				NotifyObservers();
+			Event event = HasChanged();
+			if (event.changed){
+				NotifyObservers(event);
 			}
 		}
 	}
-	public void NotifyObservers(){
-		for (IObserver observer : observers) {
-			observer.notify();
+	public void NotifyObservers(Event event){
+		Iterator<IObserver> iter = observers.iterator();
+		while (iter.hasNext()) {
+			IObserver next = iter.next();
+			synchronized (next) {
+				next.OnNotify(event);
+			}
+
 		}
 	}
-	public abstract boolean HasChanged();
+	public abstract Event HasChanged();
 }

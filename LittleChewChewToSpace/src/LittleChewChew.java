@@ -56,7 +56,7 @@ public class LittleChewChew {
 		locationSystem = new LocateSystem(ultrasonicSensor);
 		touchSystem = new TouchSystem(pushSensor);
 		boundarySystem = new BoundarySystem(lightSensor);
-		
+
 		locationSystem.StartObserving();
 		touchSystem.StartObserving();
 		boundarySystem.StartObserving();
@@ -87,5 +87,6 @@ public class LittleChewChew {
 			machine.update(0);
 		}
 		martianSystem.displayMessage("Cleared Cans In " + timer.getTime() + " Seconds!");
+		System.exit(0);
 	}
 }

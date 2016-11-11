@@ -1,3 +1,4 @@
+package Tests;
 import lejos.nxt.I2CPort;
 import lejos.nxt.UltrasonicSensor;
 

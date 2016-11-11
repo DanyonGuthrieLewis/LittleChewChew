@@ -7,6 +7,7 @@ public class Start extends State{
 	}
 	@Override
 	public void OnStateEnter() {
+		System.out.println("Start");
 		machine.switchStates(next, this);
 	}
 }

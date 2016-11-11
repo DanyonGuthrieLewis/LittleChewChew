@@ -6,7 +6,11 @@ public class BoundarySystem extends Observable{
 		this.sensor = sensor;
 	}
 	@Override
-	public boolean HasChanged() {
+	public void StartObserving() {
+		super.StartObserving();
+	}
+	@Override
+	public Event HasChanged() {
 		return sensor.hasChanged();
 	}
 

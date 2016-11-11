@@ -15,6 +15,7 @@ public class LocateCan extends ObserverState{
 	public void OnStateEnter() {
 		canInFront.addObserver(this);
 		machine.addState(right);
+		System.out.println("Locate");
 	}
 	@Override
 	public void OnNotify(Event event) {

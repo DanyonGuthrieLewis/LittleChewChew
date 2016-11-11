@@ -1,6 +1,7 @@
 
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class StateMachine {
     private ArrayList<State> states;
@@ -25,19 +26,21 @@ public class StateMachine {
         }
         return false;
     }
-    public void switchStates(State newState, State oldState){
+    public void switchStates(State newState, State oldState){  
         removeState(oldState);
         addState(newState);
     }
     public void update(float dt){
-    	for(State state : states){
-    		if(state.isActive()) state.OnStateUpdate(dt);
+    	Iterator<State> iter = states.iterator();
+    	while (iter.hasNext()){
+    		State current = iter.next();
+    		if(current.isActive()) current.OnStateUpdate(dt);
     	}
     }
     public boolean hasState(State state){
     	return states.contains(state);
     }
     public boolean hasStates(){
-    	return (states.size() <= 0);
+    	return (states.size() > 0);
     }
 }

@@ -1,3 +1,4 @@
+package Tests;
 import lejos.nxt.ADSensorPort;
 import lejos.nxt.LightSensor;
 
