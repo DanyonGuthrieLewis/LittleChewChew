@@ -1,7 +1,8 @@
 
 public class TurnLeft extends State{
 	DriveSystem drive;
-	public TurnLeft(DriveSystem drive) {
+	
+	public void initialize(DriveSystem drive){
 		this.drive = drive;
 	}
 	@Override

@@ -3,7 +3,8 @@ public class TurnRightUntilBoundary extends ObserverState{
 	private State turnRight;
 	private State turnLeftUntilBoundary;
 	private BoundarySystem boundarySystem;
-	public TurnRightUntilBoundary(State turnRight, State turnLeftUntilBoundary, BoundarySystem boundarySystem) {
+	
+	public void initialize(State turnRight, State turnLeftUntilBoundary, BoundarySystem boundarySystem){
 		this.turnRight = turnRight;
 		this.turnLeftUntilBoundary = turnLeftUntilBoundary;
 		this.boundarySystem = boundarySystem;

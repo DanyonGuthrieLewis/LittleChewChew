@@ -5,12 +5,11 @@ public class ReverseIntoBoundary extends ObserverState{
 	private State backwards;
 	private BoundarySystem boundarySystem;
 	
-	public ReverseIntoBoundary(State locateCan, MoveBackwards backwards, BoundarySystem boundarySystem) {
+	public void initialize(State locateCan, MoveBackwards backwards, BoundarySystem boundarySystem){
 		this.locateCan = locateCan;
 		this.backwards = backwards;
 		this.boundarySystem = boundarySystem;
 	}
-	
 	@Override
 	public void OnStateEnter() {
 		boundarySystem.addObserver(this);

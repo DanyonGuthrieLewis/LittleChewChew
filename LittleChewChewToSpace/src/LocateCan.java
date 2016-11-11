@@ -5,13 +5,12 @@ public class LocateCan extends ObserverState{
 	private State remove;
 	LocateSystem canInFront;
 	
-	public LocateCan(State remove, State left, State right, LocateSystem canInFront) {
+	public void initialize(State remove, State left, State right, LocateSystem canInFront){
 		this.remove = remove;
 		this.left = left;
 		this.right = right;
 		this.canInFront = canInFront;
 	}
-	
 	@Override
 	public void OnStateEnter() {
 		canInFront.addObserver(this);

@@ -6,7 +6,7 @@ public class MoveForwards extends ObserverState{
 	
 	boolean isTouchingCan = false;
 	
-	public MoveForwards(DriveSystem drive, MartianSystem martianSystem, TouchSystem touchSystem) {
+	public void initialize(DriveSystem drive, MartianSystem martianSystem, TouchSystem touchSystem){
 		this.drive = drive;
 		this.marty = martianSystem;
 		this.meToucher = touchSystem;

@@ -2,7 +2,8 @@
 public class Finish extends ObserverState{
 	private State forward;
 	private BoundarySystem boundarySystem;
-	public Finish(State forward, BoundarySystem boundarySystem) {
+	
+	public void initialize(State forward, BoundarySystem boundarySystem){
 		this.boundarySystem = boundarySystem;
 		this.forward = forward;
 	}

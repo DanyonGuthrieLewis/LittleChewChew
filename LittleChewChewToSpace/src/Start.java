@@ -1,7 +1,8 @@
 
 public class Start extends State{
 	private State next;
-	public Start(State next){
+	
+	public void initialize(State next){
 		this.next = next;
 	}
 	@Override
