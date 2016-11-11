@@ -57,6 +57,9 @@ public class LittleChewChew {
 		locationSystem.StartObserving();
 		touchSystem.StartObserving();
 		boundarySystem.StartObserving();
+		
+		driveSystem = new DriveSystem();
+		martianSystem = new MartianSystem();
 	}
 	
 	private void initializeStates(){
