@@ -1,4 +1,7 @@
+import lejos.nxt.LightSensor;
 import lejos.nxt.SensorPort;
+import lejos.nxt.TouchSensor;
+import lejos.nxt.UltrasonicSensor;
 
 public class LittleChewChew {
 	
@@ -45,9 +48,9 @@ public class LittleChewChew {
 		initializeStates();
 	}
 	private void initializeSensors(){
-		ultrasonicSensor = new LeJOS_UltrasonicSensor(SensorPort.S1);
-		pushSensor = new LeJOS_PushSensor(SensorPort.S2);
-		lightSensor = new LeJOS_LightSensor(SensorPort.S3);
+		ultrasonicSensor = new LeJOS_UltrasonicSensor(new UltrasonicSensor(SensorPort.S1));
+		pushSensor = new LeJOS_PushSensor(new TouchSensor(SensorPort.S2));
+		lightSensor = new LeJOS_LightSensor(new LightSensor(SensorPort.S3));
 	}
 	private void initializeSystems(){
 		locationSystem = new LocateSystem(ultrasonicSensor);
