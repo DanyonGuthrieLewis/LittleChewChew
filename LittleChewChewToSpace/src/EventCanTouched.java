@@ -1,7 +1,7 @@
 
-public class CanTouchedEvent extends Event{
+public class EventCanTouched extends Event{
 	private boolean isTouchingCan;
-	public CanTouchedEvent(boolean changed, boolean touchingCan){
+	public EventCanTouched(boolean changed, boolean touchingCan){
 		Tag = "TouchedCan";
 		this.changed = changed;
 		isTouchingCan = touchingCan;

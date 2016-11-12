@@ -1,14 +1,16 @@
 
-public class BoundarySystem extends Observable{
+public class SystemLocate extends Observable {
+	private IUltrasonicSensor sensor;
 
-	ILightSensor sensor;
-	public BoundarySystem(ILightSensor sensor) {
+	public SystemLocate(IUltrasonicSensor sensor) {
 		this.sensor = sensor;
 	}
+
 	@Override
 	public void StartObserving() {
 		super.StartObserving();
 	}
+	
 	@Override
 	public Event HasChanged() {
 		return sensor.hasChanged();

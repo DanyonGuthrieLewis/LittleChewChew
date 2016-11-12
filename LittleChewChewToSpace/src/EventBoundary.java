@@ -1,10 +1,10 @@
 
-public class BoundaryEvent extends Event{
+public class EventBoundary extends Event{
 	private boolean isOnBoundary;
 	private boolean isNotOnBoundary;
 	private boolean isInBoundary;
 	private boolean isOutOfBoundary;
-	public BoundaryEvent(boolean changed, boolean OnBoundary, boolean OutOfBoundary){
+	public EventBoundary(boolean changed, boolean OnBoundary, boolean OutOfBoundary){
 		Tag = "BoundaryCrossed";
 		this.changed = changed;
 		isOnBoundary = OnBoundary;

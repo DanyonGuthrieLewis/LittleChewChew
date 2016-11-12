@@ -1,11 +1,16 @@
 import lejos.nxt.Motor;
 
-public class DriveSystem {
+public class SystemDrive {
 	private static final int DEFAULT_SPEED = 720;
 
-	public DriveSystem() {
+	public SystemDrive() {
 		Motor.A.setSpeed(DEFAULT_SPEED);
 		Motor.B.setSpeed(DEFAULT_SPEED);
+	}
+	
+	public void SetSpeed(int speed) {
+		Motor.A.setSpeed(speed);
+		Motor.B.setSpeed(speed);
 	}
 
 	public void moveForward() {

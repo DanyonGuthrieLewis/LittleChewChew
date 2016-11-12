@@ -1,6 +1,6 @@
 import lejos.nxt.Sound;
 
-public class MartianSystem{
+public class SystemMartian{
 	private final static int FORWARD_SOUND_CODE = 3;
 	private final static int BACKWARD_SOUND_CODE = 2;
 	private final static int TOUCHING_SOUND_CODE = 4;

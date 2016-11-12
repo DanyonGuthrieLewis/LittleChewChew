@@ -3,7 +3,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import LeJOS_UltrasonicSensor;
+//import LeJOS_UltrasonicSensor;
 import lejos.nxt.SensorPort;
 
 public class Tester_UltrasonicSensorTest{

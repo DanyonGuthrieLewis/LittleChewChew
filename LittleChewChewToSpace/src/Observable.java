@@ -35,7 +35,7 @@ public abstract class Observable implements Runnable{
 		while (iter.hasNext()) {
 			IObserver next = iter.next();
 			synchronized (next) {
-				next.OnNotify(event);
+				if (next.IsActive()) next.OnNotify(event);
 			}
 
 		}

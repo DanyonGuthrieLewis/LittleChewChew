@@ -5,7 +5,7 @@ public class LeJOS_LightSensor implements ILightSensor {
 	private boolean isNotCrossingBoundary;
 	private boolean previousResult;
 	private LightSensor lightsensor;
-	private static final int BOUNDARY_VALUE = 50;
+	private static final int BOUNDARY_VALUE = 40;
 	private static final boolean DEFAULT_PREVIOUS_RESULT = false;
 
 	public LeJOS_LightSensor(LightSensor lightsensor) {
@@ -13,6 +13,7 @@ public class LeJOS_LightSensor implements ILightSensor {
 		this.setWithinBoundary(true);
 		this.setWithinBoundary(true);
 		this.setPreviousResult(DEFAULT_PREVIOUS_RESULT);
+		lightsensor.setFloodlight(true);
 	}
 
 	public Event hasChanged(){
@@ -22,7 +23,7 @@ public class LeJOS_LightSensor implements ILightSensor {
 			changed = true;
 		}
 		this.setPreviousResult(currentResult);
-		return new BoundaryEvent(changed, isOnBoundary(), isOutOfBoundary());
+		return new EventBoundary(changed, isOnBoundary(), isOutOfBoundary());
 	}
 	public boolean isOutOfBoundary() {
 		if(isNotCrossingBoundary){
@@ -35,7 +36,7 @@ public class LeJOS_LightSensor implements ILightSensor {
 				this.setWithinBoundary(!this.isWithinBoundary);
 			}
 		}
-		return this.isWithinBoundary;
+		return isWithinBoundary;
 	}
 
 	public boolean isOnBoundary() {

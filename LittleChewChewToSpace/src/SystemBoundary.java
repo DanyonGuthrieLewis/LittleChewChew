@@ -1,7 +1,8 @@
 
-public class TouchSystem extends Observable{
-	private IPushSensor sensor;
-	public TouchSystem(IPushSensor sensor) {
+public class SystemBoundary extends Observable{
+
+	ILightSensor sensor;
+	public SystemBoundary(ILightSensor sensor) {
 		this.sensor = sensor;
 	}
 	@Override

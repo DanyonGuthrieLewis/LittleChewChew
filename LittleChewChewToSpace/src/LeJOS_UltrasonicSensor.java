@@ -1,10 +1,10 @@
 import lejos.nxt.UltrasonicSensor;
 
 public class LeJOS_UltrasonicSensor implements IUltrasonicSensor{
-	private boolean previousResult;
+	private boolean previousResult = false;
 	private UltrasonicSensor sensor;
 	private static final int ACCEPTABLE_RANGE_MIN = 0;
-	private static final int ACCEPTABLE_RANGE_MAX = 60;
+	private static final int ACCEPTABLE_RANGE_MAX = 70;
 	
 	public LeJOS_UltrasonicSensor(UltrasonicSensor sensor) {
 		this.setSensor(sensor);
@@ -24,7 +24,7 @@ public class LeJOS_UltrasonicSensor implements IUltrasonicSensor{
 		if(currentResult != previousResult)
 			changed = true;
 		this.setPreviousResult(currentResult);
-		return new CanInFrontEvent(changed, isCanInFront());
+		return new EventCanInFront(changed, isCanInFront(), sensor.getDistance());
 	}
 
 	public void setPreviousResult(boolean previousResult) {

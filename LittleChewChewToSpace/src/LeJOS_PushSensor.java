@@ -24,7 +24,7 @@ public class LeJOS_PushSensor implements IPushSensor {
 			changed = true;
 		}
 		this.setPreviousResult(currentResult);
-		return new CanTouchedEvent(changed, isTouchingCan());
+		return new EventCanTouched(changed, isTouchingCan());
 
 	}
 
