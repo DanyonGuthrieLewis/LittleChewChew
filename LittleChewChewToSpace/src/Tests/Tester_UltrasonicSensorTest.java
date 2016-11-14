@@ -21,23 +21,23 @@ public class Tester_UltrasonicSensorTest{
 		
 		testingSensor.setDistance(MAX_DISTANCE);
 		assertEquals(false, sensorClass.isCanInFront());
-		assertEquals(false, sensorClass.hasChanged());
+		assertEquals(false, sensorClass.hasChanged().changed());
 		
 		testingSensor.setDistance(MIN_DISTANCE);
 		assertEquals(true, sensorClass.isCanInFront());
-		assertEquals(true, sensorClass.hasChanged());
+		assertEquals(true, sensorClass.hasChanged().changed());
 		
 		testingSensor.setDistance(NONE_FOUND);
 		assertEquals(false, sensorClass.isCanInFront());
-		assertEquals(true, sensorClass.hasChanged());
+		assertEquals(true, sensorClass.hasChanged().changed());
 		
 		testingSensor.setDistance(IN_DISTANCE);
 		assertEquals(true, sensorClass.isCanInFront());
-		assertEquals(true, sensorClass.hasChanged());
+		assertEquals(true, sensorClass.hasChanged().changed());
 		
 		testingSensor.setDistance(OUT_DISTANCE);
 		assertEquals(true, sensorClass.isCanInFront());
-		assertEquals(false, sensorClass.hasChanged());
+		assertEquals(false, sensorClass.hasChanged().changed());
 		
 	}
 
