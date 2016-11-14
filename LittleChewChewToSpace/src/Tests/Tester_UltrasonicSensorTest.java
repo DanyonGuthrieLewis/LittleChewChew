@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 //import LeJOS_UltrasonicSensor;
-import lejos.nxt.SensorPort;
+//import lejos.nxt.SensorPort;
 import robot.LeJOS_UltrasonicSensor;
 
 public class Tester_UltrasonicSensorTest{
@@ -16,7 +16,7 @@ public class Tester_UltrasonicSensorTest{
 	@Test
 	public void test() {
 		
-		Tester_UltrasonicSensor testingSensor = new Tester_UltrasonicSensor(SensorPort.S1);
+		Tester_UltrasonicSensor testingSensor = new Tester_UltrasonicSensor();
 		LeJOS_UltrasonicSensor sensorClass = new LeJOS_UltrasonicSensor(testingSensor);
 		
 		testingSensor.setDistance(MAX_DISTANCE);
