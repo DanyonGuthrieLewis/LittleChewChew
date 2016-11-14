@@ -1,6 +1,6 @@
 package Tests;
 
-import lejos.nxt.SensorPort;
+//import lejos.nxt.SensorPort;
 import robot.LeJOS_UltrasonicSensor;
 
 public class Test_UltrasonicSensor {
@@ -13,7 +13,7 @@ public class Test_UltrasonicSensor {
 
 	public static void main(String[] args) {
 		int success = 0;
-		Tester_UltrasonicSensor testingSensor = new Tester_UltrasonicSensor(SensorPort.S1);
+		Tester_UltrasonicSensor testingSensor = new Tester_UltrasonicSensor();
 		LeJOS_UltrasonicSensor sensorClass = new LeJOS_UltrasonicSensor(testingSensor);
 
 		testingSensor.setDistance(MAX_DISTANCE);
