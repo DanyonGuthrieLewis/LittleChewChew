@@ -4,7 +4,7 @@ public class LeJOS_UltrasonicSensor implements IUltrasonicSensor{
 	private boolean previousResult = false;
 	private UltrasonicSensor sensor;
 	private static final int ACCEPTABLE_RANGE_MIN = 0;
-	private static final int ACCEPTABLE_RANGE_MAX = 70;
+	private static final int ACCEPTABLE_RANGE_MAX = 80;
 	
 	public LeJOS_UltrasonicSensor(UltrasonicSensor sensor) {
 		this.setSensor(sensor);

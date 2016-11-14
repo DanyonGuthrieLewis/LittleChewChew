@@ -24,20 +24,9 @@ public class LLCTimer implements Runnable{
 		timerThread.start();
 	}
 	public void stopTimer(){
-		tryWait();
 		running = false;
-		tryNotify();
 	}
-	private void tryWait(){
-		try {
-			timerThread.wait();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
-	private void tryNotify(){
-		timerThread.notify();
-	}
+	
 	public long getTime(){
 		return currentTimeInMilliseconds;
 	}

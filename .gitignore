@@ -2,3 +2,11 @@
 /LittleChewChewToSpace/bin
 /LittleChewChewToSpace/src/*.class
 /.recommenders/index/http___download_eclipse_org_recommenders_models_neon_/*.lock
+/.recommenders/index/http___download_eclipse_org_recommenders_models_neon_/*.tis
+/.recommenders/index/http___download_eclipse_org_recommenders_models_neon_/*.tii
+/.recommenders/index/http___download_eclipse_org_recommenders_models_neon_/*.fdt
+/.recommenders/index/http___download_eclipse_org_recommenders_models_neon_/*.fdx
+/.recommenders/index/http___download_eclipse_org_recommenders_models_neon_/*.fnm
+/.recommenders/index/http___download_eclipse_org_recommenders_models_neon_/*.frq
+/.recommenders/index/http___download_eclipse_org_recommenders_models_neon_/*.nrm
+/.recommenders/index/http___download_eclipse_org_recommenders_models_neon_/*.prx
