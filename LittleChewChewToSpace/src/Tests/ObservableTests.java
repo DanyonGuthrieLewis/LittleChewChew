@@ -27,7 +27,7 @@ public class ObservableTests {
 		@Override
 		public void OnNotify(Event event) {
 			TestEvent test = (TestEvent) event;
-			if (test.hasChanged()) 
+			if (test.changed()) 
 			{
 				
 				synchronized (this) {
