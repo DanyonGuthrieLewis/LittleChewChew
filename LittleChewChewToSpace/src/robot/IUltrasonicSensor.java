@@ -1,3 +1,4 @@
+package robot;
 
 public interface IUltrasonicSensor {
 	public boolean isCanInFront();

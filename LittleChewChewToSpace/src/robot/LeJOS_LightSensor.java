@@ -1,3 +1,4 @@
+package robot;
 import lejos.nxt.LightSensor;
 
 public class LeJOS_LightSensor implements ILightSensor {

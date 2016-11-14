@@ -1,3 +1,4 @@
+package robot;
 import lejos.nxt.TouchSensor;
 
 public class LeJOS_PushSensor implements IPushSensor {

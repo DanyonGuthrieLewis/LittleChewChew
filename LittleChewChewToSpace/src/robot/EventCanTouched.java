@@ -1,3 +1,4 @@
+package robot;
 
 public class EventCanTouched extends Event{
 	private boolean isTouchingCan;

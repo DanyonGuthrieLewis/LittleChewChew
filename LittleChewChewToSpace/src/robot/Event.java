@@ -1,3 +1,4 @@
+package robot;
 
 public class Event {
 	protected String Tag;

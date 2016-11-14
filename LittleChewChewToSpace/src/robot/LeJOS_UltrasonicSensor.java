@@ -1,3 +1,4 @@
+package robot;
 import lejos.nxt.UltrasonicSensor;
 
 public class LeJOS_UltrasonicSensor implements IUltrasonicSensor{

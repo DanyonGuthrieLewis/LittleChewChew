@@ -1,3 +1,4 @@
+package robot;
 
 public interface ILightSensor {
 	public boolean isOnBoundary();

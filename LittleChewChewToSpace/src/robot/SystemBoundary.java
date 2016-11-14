@@ -1,7 +1,9 @@
+package robot;
 
-public class SystemPush extends Observable{
-	private IPushSensor sensor;
-	public SystemPush(IPushSensor sensor) {
+public class SystemBoundary extends Observable{
+
+	ILightSensor sensor;
+	public SystemBoundary(ILightSensor sensor) {
 		this.sensor = sensor;
 	}
 	@Override

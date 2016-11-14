@@ -1,3 +1,4 @@
+package robot;
 
 public class EventBoundary extends Event{
 	private boolean isOnBoundary;

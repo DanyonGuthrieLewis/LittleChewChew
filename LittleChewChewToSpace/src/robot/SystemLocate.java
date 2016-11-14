@@ -1,3 +1,4 @@
+package robot;
 
 public class SystemLocate extends Observable {
 	private IUltrasonicSensor sensor;

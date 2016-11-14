@@ -1,3 +1,4 @@
+package robot;
 
 public class CanClear {
 	public static void main(String[] args){

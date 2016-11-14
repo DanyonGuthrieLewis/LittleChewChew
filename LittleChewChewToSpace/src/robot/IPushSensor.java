@@ -1,3 +1,4 @@
+package robot;
 
 public interface IPushSensor {
 	public boolean isTouchingCan();
