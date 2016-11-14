@@ -6,4 +6,7 @@ public class Event {
 	public String getTag(){
 		return Tag;
 	}
+	public boolean hasChanged(){
+		return changed;
+	}
 }
