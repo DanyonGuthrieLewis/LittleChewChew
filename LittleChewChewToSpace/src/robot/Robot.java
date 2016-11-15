@@ -28,7 +28,7 @@ public class Robot implements IObserver{
 	private LLCTimer stateTimer;
 	
 	//----- Variables -----//
-	private State state = State.FORWARD;
+	private Action state = Action.FORWARD;
 	private boolean running = true;
 	private boolean active = true;
 	private boolean touchingCan = false;
@@ -66,8 +66,8 @@ public class Robot implements IObserver{
 	private void initializeTimers(){
 		jobTimer = new LLCTimer();
 		stateTimer = new LLCTimer();
-		timerSystem = new SystemTimer("TimerEvent");
-		finishSystem = new SystemTimer("GetOut");
+		timerSystem = new SystemTimer(RobotEventHandler.BUFFER_TIMER_EVENT);
+		finishSystem = new SystemTimer(RobotEventHandler.FINISH_TIMER_EVENT);
 		timerSystem.StartObserving();
 		finishSystem.StartObserving();
 	}
@@ -98,7 +98,7 @@ public class Robot implements IObserver{
 	
 	private void run(){
 		jobTimer.startTimer();
-		state = State.TURN_RIGHT;
+		state = Action.TURN_RIGHT;
 		stateTimer.startTimer();
 		finishSystem.notifyAfter(2500);
 		while (running){
@@ -135,56 +135,37 @@ public class Robot implements IObserver{
 
 	@Override
 	public void OnNotify(Event event) {
-		if(event.getTag().equals("ButtonPressed")){
-			System.exit(0);
-		}
-		else if(event.getTag().equals("BoundaryCrossed")){
-			handleBoundaryEvent((EventBoundary) event);
-		}
-		else if (event.getTag().equals("CanInFront")){
-			handleCanInfrontEvent((EventCanInFront) event);
-		}
-		else if (event.getTag().equals("TouchedCan")){
-			handleCanTouchedEvent((EventCanTouched) event);
-		}
-		else if (event.getTag().equals("TimerEvent") || event.getTag().equals("GetOut")){
-			handleTimerEvent((EventTimer) event);
-		}
+		Action nextState = event.getHandler().handleEvent(event, state);
+		changeState(nextState);
 	}
-	private void handleBoundaryEvent(EventBoundary event){
-		if (state == state.FORWARD){
-			if(cansRemoved <= cansToRemove)
-			{
-				state = State.BACKWARD;
-				timerSystem.addObserver(this);
-				timerSystem.notifyAfter(150);
-				if (touchingCan) System.out.println("Can Removed?");
+	public void changeState(Action nextState){
+		if (nextState == Action.BACKWARD){
+			state = Action.BACKWARD;
+			timerSystem.addObserver(this);
+			timerSystem.notifyAfter(150);
+		}
+		else if (nextState == Action.FORWARD){
+			state = Action.FORWARD;
+		}
+		else if (nextState == Action.TOUCHING_CAN){
+			touchingCan = true;
+		}
+		else if (nextState == Action.NOT_TOUCHING_CAN){
+			touchingCan = false;
+		}
+		else if (nextState == Action.TURN_RIGHT){
+			state = Action.TURN_RIGHT;
+			synchronized(timerSystem){
+				timerSystem.removeObserver(this);
 			}
 		}
-	}
-	private void handleCanInfrontEvent(EventCanInFront event){
-		if (state == State.TURN_RIGHT){
-			if (event.getIsCanInFront()){
-				state = State.FORWARD;
-			}
-		}
-	}
-	private void handleCanTouchedEvent(EventCanTouched event){
-		touchingCan = event.getIsTouchingCan();
-	}
-	private void handleTimerEvent(EventTimer event){
-		if (event.getTag().equals("TimerEvent")){
-			if (state == State.BACKWARD){
-				state = State.TURN_RIGHT;
-				synchronized(timerSystem){
-					timerSystem.removeObserver(this);
-				}
-			}
-		}
-		else if (event.getTag().equals("GetOut")){
+		else if (nextState == Action.FINISHED){
 			synchronized (this) {
 				running = false;
 			}
+		}
+		else if (nextState == Action.EXIT){
+			System.exit(0);
 		}
 	}
 }

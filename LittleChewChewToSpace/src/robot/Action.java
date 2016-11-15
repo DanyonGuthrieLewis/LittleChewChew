@@ -1,0 +1,13 @@
+package robot;
+
+public enum Action {
+	FORWARD,
+	BACKWARD,
+	TURN_RIGHT,
+	TURN_LEFT,
+	TOUCHING_CAN,
+	NOT_TOUCHING_CAN,
+	FINISHED,
+	EXIT,
+	NO_CHANGE
+}

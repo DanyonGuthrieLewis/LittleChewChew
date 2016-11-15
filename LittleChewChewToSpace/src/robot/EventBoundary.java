@@ -6,7 +6,7 @@ public class EventBoundary extends Event{
 	private boolean isInBoundary;
 	private boolean isOutOfBoundary;
 	public EventBoundary(boolean changed, boolean OnBoundary, boolean OutOfBoundary){
-		Tag = "BoundaryCrossed";
+		handler = RobotEventHandler.BOUNDARY_EVENT;
 		this.changed = changed;
 		isOnBoundary = OnBoundary;
 		isNotOnBoundary = !OnBoundary;

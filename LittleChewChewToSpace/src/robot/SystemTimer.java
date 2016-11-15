@@ -1,10 +1,10 @@
 package robot;
 
 public class SystemTimer extends Observable{
-	String bingbong;
+	RobotEventHandler bingbong;
 	long startTime = 0;
 	long currentTime = 0;
-	public SystemTimer(String tag) {
+	public SystemTimer(RobotEventHandler tag) {
 		bingbong = tag;
 	}
 	public void notifyAfter(long startTime){

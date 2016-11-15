@@ -4,7 +4,7 @@ public class EventCanInFront extends Event{
 	private boolean isCanInFront;
 	private int distance;
 	public EventCanInFront(boolean changed, boolean canInFront, int distance){
-		Tag = "CanInFront";
+		handler = RobotEventHandler.CAN_IN_FRONT_EVENT;
 		this.changed = changed;
 		isCanInFront = canInFront;
 		this.distance = distance;

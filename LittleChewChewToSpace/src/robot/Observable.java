@@ -3,9 +3,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public abstract class Observable implements Runnable{
-	protected Thread observerThread;
 	private ArrayList<IObserver> observers;
 	private boolean isObserving = true;
+	protected Thread observerThread;
+	
 	public Observable(){
 		observers = new ArrayList<>();
 	}
