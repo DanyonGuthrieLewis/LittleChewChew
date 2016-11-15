@@ -39,14 +39,6 @@ public class Robot implements IObserver{
 	public boolean IsActive() {
 		return active;
 	}
-	private void activate(){
-		System.out.println("Activated");
-		active = true;
-	}
-	private void deactivate(){
-		System.out.println("Deactivated");
-		active = false;
-	}
 	public void start(){
 		initialize();
 		run();
@@ -182,7 +174,7 @@ public class Robot implements IObserver{
 	}
 	private void handleTimerEvent(EventTimer event){
 		if (event.getTag().equals("TimerEvent")){
-			if (state == state.BACKWARD){
+			if (state == State.BACKWARD){
 				state = State.TURN_RIGHT;
 				synchronized(timerSystem){
 					timerSystem.removeObserver(this);
@@ -193,15 +185,6 @@ public class Robot implements IObserver{
 			synchronized (this) {
 				running = false;
 			}
-		}
-	}
-	private boolean trySleep(long ms){
-		try {
-			Thread.sleep(ms);
-			return true;
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-			return false;
 		}
 	}
 }

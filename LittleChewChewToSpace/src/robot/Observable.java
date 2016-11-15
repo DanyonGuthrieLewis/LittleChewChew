@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public abstract class Observable implements Runnable{
-	Thread observerThread;
+	protected Thread observerThread;
 	private ArrayList<IObserver> observers;
 	private boolean isObserving = true;
 	public Observable(){
@@ -38,9 +38,7 @@ public abstract class Observable implements Runnable{
 			synchronized (next) {
 				if (next.IsActive()) 
 				{
-					synchronized (next) {
-						next.OnNotify(event);
-					}
+					next.OnNotify(event);
 				}
 			}
 
