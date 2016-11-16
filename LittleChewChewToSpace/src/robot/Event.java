@@ -1,10 +1,10 @@
 package robot;
 
 public class Event {
-	protected String Tag;
+	protected RobotEventHandler handler;
 	protected boolean changed = false;
-	public String getTag(){
-		return Tag;
+	public RobotEventHandler getHandler(){
+		return handler;
 	}
 	public boolean changed(){
 		return changed;
